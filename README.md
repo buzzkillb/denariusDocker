@@ -1,4 +1,5 @@
 # denariusDocker
+![Docker Automated build](https://img.shields.io/docker/automated/buzzkillb/denariusd.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/buzzkillb/denariusd.svg)  
 Denarius wallet daemon compiled using Ubuntu 18 and compiled openssl 1.0.1j  
 https://cloud.docker.com/u/buzzkillb/repository/docker/buzzkillb/denariusd
 
