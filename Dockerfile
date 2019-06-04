@@ -33,18 +33,9 @@ RUN (git clone https://github.com/carsenk/denarius && \
 # final image
 FROM ubuntu:18.04
 
-RUN apt-get update && apt-get install -y \
-    automake \
-    build-essential \
-    libdb++-dev \
-    libboost-all-dev \
-    libqrencode-dev \
-    libminiupnpc-dev \
-    libevent-dev \
-    libtool \
- && rm -rf /var/lib/apt/lists/*
 COPY --from=builder /usr/local/ssl/bin/openssl /usr/local/ssl/bin/openssl
 RUN ln -sf /usr/local/ssl/bin/openssl `which openssl`
 COPY --from=builder /denarius/src/denariusd /usr/local/bin/
 EXPOSE 33369 9999 9089
-CMD ["/usr/local/bin/denariusd", "-datadir=/data", "--printtoconsole"]
+ENTRYPOINT ["denariusd"]
+# CMD ["/usr/local/bin/denariusd", "-datadir=/data", "--printtoconsole"]
