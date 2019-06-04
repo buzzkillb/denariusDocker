@@ -14,7 +14,7 @@ docker ps
 ```
 Go into container  
 ```
-docker exec -ti 04a53c0913a9 bin/bash
+docker exec denariusd bin/bash
 ```
 To update to latest daemon image  
 ```
