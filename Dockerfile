@@ -47,3 +47,4 @@ COPY --from=builder /usr/local/ssl/bin/openssl /usr/local/ssl/bin/openssl
 RUN ln -sf /usr/local/ssl/bin/openssl `which openssl`
 COPY --from=builder /denarius/src/denariusd /usr/local/bin/
 EXPOSE 33369 9999 9089
+CMD ["/usr/local/bin/denariusd", "-datadir=/data", "--printtoconsole"]
