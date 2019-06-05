@@ -67,5 +67,9 @@ To watch logs to check for which FS's are active.
 ```
 docker-compose logs | grep "CActiveFortunastake::Dseep"
 ```
+TO watch logs to check for which FS's are not active.  
+```
+docker-compose logs | grep " | CActiveFortunastake::Dseep() - SendForTunaElectionEntryPing vin = CTxIn(COutPoint(706b6cb360, 16), scriptSig=)"
+```
 
 **Huge thanks to EtherGem for Docker tips**
