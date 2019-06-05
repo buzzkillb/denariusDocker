@@ -37,6 +37,17 @@ RUN git clone https://github.com/carsenk/denarius && \
 # final image
 FROM ubuntu:18.04
 
+RUN apt-get update && apt-get install -y \	
+    automake \	
+    build-essential \	
+    libdb++-dev \	
+    libboost-all-dev \	
+    libqrencode-dev \	
+    libminiupnpc-dev \	
+    libevent-dev \	
+    libtool \	
+ && rm -rf /var/lib/apt/lists/*
+
 RUN mkdir -p /data
 
 VOLUME ["/data"]
