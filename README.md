@@ -36,4 +36,31 @@ docker pull buzzkillb/denariusd:latest
 docker stop FS01
 docker run --name=FS01 --rm -t -d -v ~/D/FS01:/data -P buzzkillb/denariusd:latest
 ```
-Huge thanks to EtherGem for Docker tips
+Launch using Docker Compose  
+install Docker Compose - Linux  
+https://docs.docker.com/compose/install/  
+Example 3 FortunaStakes  
+Create **docker-compose.yml**  
+```
+FS01:
+  image: buzzkillb/denariusd:latest
+  volumes:
+    - ~/D/MN01:/data
+FS02:
+  image: buzzkillb/denariusd:latest
+  volumes:
+    - ~/D/MN02:/data
+FS03:
+  image: buzzkillb/denariusd:latest
+  volumes:
+    - ~/D/MN03:/data
+```
+To launch your node, simply type docker-compose up:  
+
+`docker-compose up -d`  # start denariusd in the background  
+or  
+`docker-compose up` # watch all printoconsole in realtime as denariusd starts up  
+`docker-compose ps` # show running processes  
+`docker-compose down` # stop denariusd (blockchain data will remain on disk)  
+
+**Huge thanks to EtherGem for Docker tips**
