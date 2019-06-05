@@ -9,6 +9,9 @@ Sample Run
 ```
 docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariusd
 ```
+**--name=denariusd** (name of container)  
+**-v ~/.denarius** (path of chaindata on your vps or pc)  
+
 Tail container to watch action  
 ```
 docker logs denariusd -f
