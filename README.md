@@ -3,31 +3,34 @@
 Denarius wallet daemon compiled using Ubuntu 18 and compiled openssl 1.0.1j  
 https://cloud.docker.com/u/buzzkillb/repository/docker/buzzkillb/denariusd
 
+**denarius.conf cannot have daemon=1 in it  
+and you must create a denarius.conf with rpcuser and rpcpassword before starting**  
 Sample Run  
 ```
-docker run --name=denariusd --rm -it -d -v ~/.denarius:/root/.denarius -P buzzkillb/denariusd
+docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariusd
 ```
-**Sample to go into container**  
+Tail container to watch action  
+```
+docker logs denariusd -f
+```
 Find container name  
 ```
 docker ps
 ```
-Go into container  
+Stop Container  
 ```
-docker exec denariusd bin/bash
+docker stop denariusd
 ```
 To update to latest daemon image  
 ```
 docker pull buzzkillb/denariusd:latest
 docker stop denariusd
-docker rm denariusd
-docker run --name=denariusd --rm -it -d -v ~/.denarius:/root/.denarius -P buzzkillb/denariusd:latest
+docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariusd:latest
 ```
 Hint on running FortunaStakes  
 ```
 docker pull buzzkillb/denariusd:latest
 docker stop FS01
-docker rm FS01
-docker run --name=FS01 --rm -it -d -v ~/D/FS01:/root/.denarius -P buzzkillb/denariusd:latest
+docker run --name=FS01 --rm -t -d -v ~/D/FS01:/data -P buzzkillb/denariusd:latest
 ```
 Huge thanks to EtherGem for Docker tips
