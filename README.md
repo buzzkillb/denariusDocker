@@ -63,4 +63,9 @@ or
 `docker-compose ps` # show running processes  
 `docker-compose down` # stop denariusd (blockchain data will remain on disk)  
 
+To watch logs to check for which FS's are active.  
+```
+docker-compose logs | grep "CActiveFortunastake::Dseep"
+```
+
 **Huge thanks to EtherGem for Docker tips**
