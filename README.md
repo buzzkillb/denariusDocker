@@ -12,6 +12,12 @@ docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariu
 **--name=denariusd** (name of container)  
 **-v ~/.denarius** (path of chaindata on your vps or pc)  
 
+To Getinfo or GetBalance  
+```
+docker exec denariusd denariusd -datadir=/data getinfo
+docker exec denariusd denariusd -datadir=/data getbalance
+```
+
 Tail container to watch action  
 ```
 docker logs denariusd -f
