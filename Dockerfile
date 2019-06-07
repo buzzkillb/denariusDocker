@@ -1,13 +1,12 @@
-FROM ubuntu:18.04 as builder
-
-LABEL author="buzzkillb"
-
-RUN apt-get update && apt-get install -y \
+FROM armhf/ubuntu as builder
+RUN apt-get update && apt-get -qy install \
     git \
+    nano \
+    curl \
     wget \
-    unzip \
-    automake \
     build-essential \
+    build-essential \
+    libssl-dev \
     libdb++-dev \
     libboost-all-dev \
     libqrencode-dev \
@@ -18,41 +17,34 @@ RUN apt-get update && apt-get install -y \
     libtool \
     make \
     && rm -rf /var/lib/apt/lists/*
- 
-RUN wget https://www.openssl.org/source/openssl-1.0.1j.tar.gz && \
-    tar -xzvf openssl-1.0.1j.tar.gz && \
-    cd openssl-1.0.1j && \
-    ./config && \
-    make install && \
-    ln -sf /usr/local/ssl/bin/openssl `which openssl` && \
-    cd ~
-    
+
 RUN git clone https://github.com/carsenk/denarius && \
     cd denarius && \
     git checkout v3.4 && \
     git pull && \
     cd src && \
-    OPENSSL_INCLUDE_PATH=/usr/local/ssl/include OPENSSL_LIB_PATH=/usr/local/ssl/lib make -f makefile.unix
+    make -f makefile.arm && \
+    strip denariusd
 
-# final image
-FROM ubuntu:18.04
+FROM armhf/ubuntu
 
-RUN apt-get update && apt-get install -y \	
-    automake \	
-    build-essential \	
-    libdb++-dev \	
-    libboost-all-dev \	
-    libqrencode-dev \	
-    libminiupnpc-dev \	
-    libevent-dev \	
-    libtool \	
- && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get -qy install \
+    automake \
+    build-essential \
+    libssl-dev \
+    libdb++-dev \
+    libboost-all-dev \
+    libqrencode-dev \
+    libminiupnpc-dev \
+    libevent-dev \
+    libtool
+
+RUN apt-get update && apt-get -qy install git nano curl wget build-essential
 
 RUN mkdir -p /data
 
 VOLUME ["/data"]
 
-COPY --from=builder /usr/local/ssl/bin/openssl /usr/local/ssl/bin/openssl
 COPY --from=builder /denarius/src/denariusd /usr/local/bin/
 
 EXPOSE 9089 9999 33369
