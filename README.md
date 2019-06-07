@@ -3,6 +3,16 @@
 Denarius wallet daemon compiled using Ubuntu 18 and compiled openssl 1.0.1j  
 https://cloud.docker.com/u/buzzkillb/repository/docker/buzzkillb/denariusd
 
+docker cloud wont build arm
+git clone this branch, then cd into that folder
+to build  
+```
+docker build -f Dockerfile.dev -t pi3 .
+```
+to run  
+```
+docker run --name=denariusd --rm -t -v ~/.denarius:/data pi3
+```
 **denarius.conf cannot have daemon=1 in it  
 and you must create a denarius.conf with rpcuser and rpcpassword before starting**  
 Sample Run  
