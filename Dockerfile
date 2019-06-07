@@ -1,4 +1,5 @@
 FROM armhf/ubuntu as builder
+COPY qemu-arm-static /usr/bin
 RUN apt-get update && apt-get -qy install \
     git \
     nano \
@@ -27,6 +28,7 @@ RUN git clone https://github.com/carsenk/denarius && \
     strip denariusd
 
 FROM armhf/ubuntu
+COPY qemu-arm-static /usr/bin
 
 RUN apt-get update && apt-get -qy install \
     automake \
