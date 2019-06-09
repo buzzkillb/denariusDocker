@@ -7,7 +7,7 @@ https://cloud.docker.com/u/buzzkillb/repository/docker/buzzkillb/denariusd
 and you must create a denarius.conf with rpcuser and rpcpassword before starting**  
 Sample Run  
 ```
-docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariusd
+docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariusd:latest
 ```
 **--name=denariusd** (name of container)  
 **-v ~/.denarius** (path of chaindata on your vps or pc)  
@@ -71,11 +71,11 @@ or
 
 To watch logs to check for which FS's are active.  
 ```
-docker-compose logs | grep "CActiveFortunastake::Dseep"
+docker-compose logs | grep "CActiveFortunastake::Dseep" -f
 ```
 TO watch logs to check for which FS's are not active.  
 ```
-docker-compose logs | grep "CActiveFortunastake::ManageStatus() - not capable: Could not connect to"
+docker-compose logs | grep "CActiveFortunastake::ManageStatus() - not capable: Could not connect to" -f
 ```
 
 **Huge thanks to EtherGem for Docker tips**
