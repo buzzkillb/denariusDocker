@@ -1,9 +1,9 @@
 # denariusDocker
 ![Docker Automated build](https://img.shields.io/docker/automated/buzzkillb/denariusd.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/buzzkillb/denariusd.svg)  
-Denarius wallet daemon compiled using Ubuntu 18 and compiled openssl 1.0.1j  
+Denarius wallet daemon compiled using Ubuntu 16.04  
 https://cloud.docker.com/u/buzzkillb/repository/docker/buzzkillb/denariusd
 
-**buzzkillb/denariusd1604**
+**buzzkillb/denariusd1604**  
 
 **denarius.conf cannot have daemon=1 in it  
 and you must create a denarius.conf with rpcuser and rpcpassword before starting**  
