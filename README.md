@@ -3,13 +3,13 @@
 Denarius wallet daemon compiled using Ubuntu 16.04  
 https://cloud.docker.com/u/buzzkillb/repository/docker/buzzkillb/denariusd
 
-**buzzkillb/denariusd1604**  
+**buzzkillb/denariusd:xenial**  
 
 **denarius.conf cannot have daemon=1 in it  
 and you must create a denarius.conf with rpcuser and rpcpassword before starting**  
 Sample Run  
 ```
-docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariusd1604
+docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariusd:xenial
 ```
 **--name=denariusd** (name of container)  
 **-v ~/.denarius** (path of chaindata on your vps or pc)  
@@ -34,15 +34,15 @@ docker stop denariusd
 ```
 To update to latest daemon image  
 ```
-docker pull buzzkillb/denariusd:latest
+docker pull buzzkillb/denariusd:xenial
 docker stop denariusd
-docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariusd:latest
+docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariusd:xenial
 ```
 Hint on running FortunaStakes  
 ```
-docker pull buzzkillb/denariusd:latest
+docker pull buzzkillb/denariusd:xenial
 docker stop FS01
-docker run --name=FS01 --rm -t -d -v ~/D/FS01:/data -P buzzkillb/denariusd:latest
+docker run --name=FS01 --rm -t -d -v ~/D/FS01:/data -P buzzkillb/denariusd:xenial
 ```
 Launch using Docker Compose  
 install Docker Compose - Linux  
@@ -51,15 +51,15 @@ Example 3 FortunaStakes
 Create **docker-compose.yml**  
 ```
 FS01:
-  image: buzzkillb/denariusd:latest
+  image: buzzkillb/denariusd:xenial
   volumes:
     - ~/D/MN01:/data
 FS02:
-  image: buzzkillb/denariusd:latest
+  image: buzzkillb/denariusd:xenial
   volumes:
     - ~/D/MN02:/data
 FS03:
-  image: buzzkillb/denariusd:latest
+  image: buzzkillb/denariusd:xenial
   volumes:
     - ~/D/MN03:/data
 ```
