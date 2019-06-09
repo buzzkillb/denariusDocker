@@ -12,15 +12,15 @@ to run
 ```
 docker run --name=denariusd --rm -t -v ~/.denarius:/data pi3
 ```
-or pull from arm daemon from docker hub
+or pull arm daemon from docker hub
 ```
-docker run --name=denariusd --rm -t -v ~/.denarius:/data buzzkillb/denariusdarmhf
+docker run --name=denariusd --rm -t -v ~/.denarius:/data buzzkillb/denariusd:armhf
 ```
 **denarius.conf cannot have daemon=1 in it  
 and you must create a denarius.conf with rpcuser and rpcpassword before starting**  
 Sample Run  
 ```
-docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariusd
+docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariusd:armhf
 ```
 **--name=denariusd** (name of container)  
 **-v ~/.denarius** (path of chaindata on your vps or pc)  
@@ -45,32 +45,33 @@ docker stop denariusd
 ```
 To update to latest daemon image  
 ```
-docker pull buzzkillb/denariusd:latest
+docker pull buzzkillb/denariusd:armhf
 docker stop denariusd
-docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariusd:latest
+docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariusd:armhf
 ```
 Hint on running FortunaStakes  
 ```
-docker pull buzzkillb/denariusd:latest
+docker pull buzzkillb/denariusd:armhf
 docker stop FS01
-docker run --name=FS01 --rm -t -d -v ~/D/FS01:/data -P buzzkillb/denariusd:latest
+docker run --name=FS01 --rm -t -d -v ~/D/FS01:/data -P buzzkillb/denariusd:armhf
 ```
 Launch using Docker Compose  
-install Docker Compose - Linux  
+install Docker Compose - PI3  
+**raspbian does not install docker-compose this way**  
 https://docs.docker.com/compose/install/  
 Example 3 FortunaStakes  
 Create **docker-compose.yml**  
 ```
 FS01:
-  image: buzzkillb/denariusd:latest
+  image: buzzkillb/denariusd:armhf
   volumes:
     - ~/D/MN01:/data
 FS02:
-  image: buzzkillb/denariusd:latest
+  image: buzzkillb/denariusd:armhf
   volumes:
     - ~/D/MN02:/data
 FS03:
-  image: buzzkillb/denariusd:latest
+  image: buzzkillb/denariusd:armhf
   volumes:
     - ~/D/MN03:/data
 ```
