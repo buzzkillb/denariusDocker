@@ -3,11 +3,13 @@
 Denarius wallet daemon compiled using Ubuntu 18 and compiled openssl 1.0.1j  
 https://cloud.docker.com/u/buzzkillb/repository/docker/buzzkillb/denariusd
 
+**buzzkillb/denariusd1604**
+
 **denarius.conf cannot have daemon=1 in it  
 and you must create a denarius.conf with rpcuser and rpcpassword before starting**  
 Sample Run  
 ```
-docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariusd
+docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariusd1604
 ```
 **--name=denariusd** (name of container)  
 **-v ~/.denarius** (path of chaindata on your vps or pc)  
