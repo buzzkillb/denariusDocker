@@ -10,7 +10,7 @@ armhf: beta branches for arm such as raspberry pi3
 and you must create a denarius.conf with rpcuser and rpcpassword before starting**  
 Sample Run  
 ```
-docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariusd:latest
+docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariusd:debian
 ```
 **--name=denariusd** (name of container)  
 **-v ~/.denarius** (path of chaindata on your vps or pc)  
@@ -35,15 +35,15 @@ docker stop denariusd
 ```
 To update to latest daemon image  
 ```
-docker pull buzzkillb/denariusd:latest
+docker pull buzzkillb/denariusd:debian
 docker stop denariusd
-docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariusd:latest
+docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariusd:debian
 ```
 Hint on running FortunaStakes  
 ```
-docker pull buzzkillb/denariusd:latest
+docker pull buzzkillb/denariusd:debian
 docker stop FS01
-docker run --name=FS01 --rm -t -d -v ~/D/FS01:/data -P buzzkillb/denariusd:latest
+docker run --name=FS01 --rm -t -d -v ~/D/FS01:/data -P buzzkillb/denariusd:debian
 ```
 Launch using Docker Compose  
 install Docker Compose - Linux  
@@ -52,15 +52,15 @@ Example 3 FortunaStakes
 Create **docker-compose.yml**  
 ```
 FS01:
-  image: buzzkillb/denariusd:latest
+  image: buzzkillb/denariusd:debian
   volumes:
     - ~/D/MN01:/data
 FS02:
-  image: buzzkillb/denariusd:latest
+  image: buzzkillb/denariusd:debian
   volumes:
     - ~/D/MN02:/data
 FS03:
-  image: buzzkillb/denariusd:latest
+  image: buzzkillb/denariusd:debian
   volumes:
     - ~/D/MN03:/data
 ```
