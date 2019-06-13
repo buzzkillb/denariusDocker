@@ -29,7 +29,6 @@ RUN wget https://www.openssl.org/source/openssl-1.0.1j.tar.gz && \
     
 RUN git clone https://github.com/carsenk/denarius && \
     cd denarius && \
-    git checkout v3.4 && \
     git pull && \
     cd src && \
     OPENSSL_INCLUDE_PATH=/usr/local/ssl/include OPENSSL_LIB_PATH=/usr/local/ssl/lib make -f makefile.unix && \
