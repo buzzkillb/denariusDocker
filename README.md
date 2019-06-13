@@ -1,11 +1,13 @@
 # denariusDocker
 ![Docker Automated build](https://img.shields.io/docker/automated/buzzkillb/denariusd.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/buzzkillb/denariusd.svg)  
 Denarius wallet daemon compiled using Ubuntu 18 and compiled openssl 1.0.1j  
-https://cloud.docker.com/u/buzzkillb/repository/docker/buzzkillb/denariusd
+https://hub.docker.com/r/buzzkillb/denariusd  
 
-latest: latest official release  
-alpha: beta branches  
-armhf: beta branches for arm such as raspberry pi3  
+latest: latest official using Ubuntu 18.04  
+debian: latest official using Stretch slim  
+xenial: latest official using Ubuntu 16.04  
+alpha: test branches Ubuntu 18.04  
+armhf: test branches for arm such as raspberry pi3  
 **denarius.conf cannot have daemon=1 in it  
 and you must create a denarius.conf with rpcuser and rpcpassword before starting**  
 Sample Run  
