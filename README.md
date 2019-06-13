@@ -3,6 +3,9 @@
 Denarius wallet daemon compiled using Ubuntu 18 and compiled openssl 1.0.1j  
 https://cloud.docker.com/u/buzzkillb/repository/docker/buzzkillb/denariusd
 
+latest: latest official release  
+alpha: beta branches  
+armhf: beta branches for arm such as raspberry pi3  
 **denarius.conf cannot have daemon=1 in it  
 and you must create a denarius.conf with rpcuser and rpcpassword before starting**  
 Sample Run  
