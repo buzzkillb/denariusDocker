@@ -1,4 +1,4 @@
-FROM armhf/ubuntu as builder
+FROM arm64v8/ubuntu as builder
 COPY qemu-arm-static /usr/bin
 RUN apt-get update && apt-get -qy install \
     git \
@@ -27,7 +27,7 @@ RUN git clone https://github.com/carsenk/denarius && \
     make -f makefile.arm && \
     strip denariusd
 
-FROM armhf/ubuntu
+FROM arm64v8/ubuntu
 COPY qemu-arm-static /usr/bin
 
 RUN apt-get update && apt-get -qy install \
