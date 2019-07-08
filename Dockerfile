@@ -21,8 +21,8 @@ RUN apt-get update && apt-get -qy install \
 
 RUN git clone https://github.com/carsenk/denarius && \
     cd denarius && \
-    # git checkout v3.4 && \
-    # git pull && \
+    git checkout v3.4 && \
+    git pull && \
     cd src && \
     make -f makefile.arm && \
     strip denariusd
