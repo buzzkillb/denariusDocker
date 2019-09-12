@@ -14,13 +14,13 @@ docker run --name=denariusd --rm -t -v ~/.denarius:/data pi3
 ```
 or pull arm daemon from docker hub
 ```
-docker run --name=denariusd --rm -t -v ~/.denarius:/data buzzkillb/denariusd:armhf
+docker run --name=denariusd --rm -t -v ~/.denarius:/data buzzkillb/denariusd:dmarketarmhf
 ```
 **denarius.conf cannot have daemon=1 in it  
 and you must create a denarius.conf with rpcuser and rpcpassword before starting**  
 Sample Run  
 ```
-docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariusd:armhf
+docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariusd:dmarketarmhf
 ```
 **--name=denariusd** (name of container)  
 **-v ~/.denarius** (path of chaindata on your vps or pc)  
@@ -47,13 +47,13 @@ To update to latest daemon image
 ```
 docker pull buzzkillb/denariusd:armhf
 docker stop denariusd
-docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariusd:armhf
+docker run --name=denariusd --rm -t -d -v ~/.denarius:/data -P buzzkillb/denariusd:dmarketarmhf
 ```
 Hint on running FortunaStakes  
 ```
 docker pull buzzkillb/denariusd:armhf
 docker stop FS01
-docker run --name=FS01 --rm -t -d -v ~/D/FS01:/data -P buzzkillb/denariusd:armhf
+docker run --name=FS01 --rm -t -d -v ~/D/FS01:/data -P buzzkillb/denariusd:dmarketarmhf
 ```
 Launch using Docker Compose  
 install Docker Compose - PI3  
@@ -63,15 +63,15 @@ Example 3 FortunaStakes
 Create **docker-compose.yml**  
 ```
 FS01:
-  image: buzzkillb/denariusd:armhf
+  image: buzzkillb/denariusd:dmarketarmhf
   volumes:
     - ~/D/MN01:/data
 FS02:
-  image: buzzkillb/denariusd:armhf
+  image: buzzkillb/denariusd:dmarketarmhf
   volumes:
     - ~/D/MN02:/data
 FS03:
-  image: buzzkillb/denariusd:armhf
+  image: buzzkillb/denariusd:dmarketarmhf
   volumes:
     - ~/D/MN03:/data
 ```
