@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y \
     make \
     && rm -rf /var/lib/apt/lists/*
     
-RUN git clone https://github.com/carsenk/denarius && \
+RUN git clone https://github.com/enkayz/denarius && \
     cd denarius && \
     git checkout v3.4 && \
     cd src && \
