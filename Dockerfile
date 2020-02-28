@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y \
     automake \
     libtool \
     make \
+    libcurl4-openssl-dev \
     && rm -rf /var/lib/apt/lists/*
  
 RUN wget https://www.openssl.org/source/openssl-1.0.1j.tar.gz && \
@@ -45,7 +46,8 @@ RUN apt-get update && apt-get install -y \
     libqrencode-dev \	
     libminiupnpc-dev \	
     libevent-dev \	
-    libtool \	
+    libtool \
+    libcurl4-openssl-dev \
  && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /data
@@ -55,6 +57,6 @@ VOLUME ["/data"]
 COPY --from=builder /usr/local/ssl/bin/openssl /usr/local/ssl/bin/openssl
 COPY --from=builder /denarius/src/denariusd /usr/local/bin/
 
-EXPOSE 9089 9999 33369
+EXPOSE 9089 9999 33369 32369
 
 ENTRYPOINT ["denariusd", "--datadir=/data", "--printtoconsole"]
