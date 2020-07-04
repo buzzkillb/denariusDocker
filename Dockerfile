@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y \
 RUN git clone https://github.com/carsenk/denarius && \
     cd denarius && \
     cd src && \
-    sed -i -e '115d' rpcrawtransaction.cpp && \
+    sed -i -e '116d' rpcrawtransaction.cpp && \
     make -f makefile.unix
 
 # final image
